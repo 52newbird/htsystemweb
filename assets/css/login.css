@@ -1,0 +1,109 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: url('/assets/images/login_bg.jpg') no-repeat center;
+  background-size: cover;
+}
+
+#pho img {
+  position: absolute;
+  top: 30px;
+  left: 95px;
+  height: 80px
+}
+
+#cent {
+  width: 500px;
+  height: 380px;
+  background-color: #fcfdfc;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#cent .ctitle {
+  display: flex;
+  height: 65px;
+  justify-content: center;
+  align-items: center;
+}
+#getinfo{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: lightblue; */
+}
+#getinfo #toLogin{
+  width: 80%;
+  margin-top: 23px;
+}
+#getinfo #toCreat{
+  width: 80%;
+  margin-top: 23px;
+}
+#getinfo #toLogin .creatUser{
+  float: right;
+  color: rgb(39, 38, 38);
+  text-decoration: none;
+  
+}
+#getinfo #toCreat .toGet{
+  float: right;
+  color: rgb(38, 37, 37);
+  text-decoration: none;
+  
+}
+#getinfo #toLogin .creatUser:hover{
+  cursor: pointer;
+}
+#getinfo #toLogin .form-group .changeDef{
+  border-color: lightblue;
+  color:rgb(35, 32, 32);
+}
+#getinfo #toLogin .form-group .form-control{
+  background-image: none;
+}
+#getinfo #toLogin .form-group .form-control:focus{
+  border-color: rgb(43,43,220) !important;
+}
+#getinfo .form-group{
+  width: 100%;
+  margin-bottom: 1.2rem;
+  /* height: 40%; */
+  position: relative;
+}
+#getinfo .form-group .invalid-feedback{
+  color: lightblue !important;
+}
+ #getinfo .form-grop .form-control{
+  border-color: 1px solid lightblue !important;
+}
+#getinfo #toCreat{
+  display: none;
+}
+#getinfo .form-group input{
+  padding-left: 30px;
+}
+#getinfo .form-group .iconfont{
+  position: absolute;
+}
+
+/* #creat {
+  width: 100%;
+  height: 25px;
+  position: relative; */
+  /* background-color: red; */
+  /* margin-top: 10px;
+} */
+/* #creat a{
+  position:absolute;
+  right: 46px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #252625;
+} */
