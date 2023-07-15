@@ -32,7 +32,7 @@ $(function () {
       $('#login-success').removeClass('d-none');
       setTimeout(function () {
         $('#login-success').addClass('d-none');
-      }, 1000);
+      }, 1500);
     })
   })
   //登录表单 登录
@@ -46,16 +46,16 @@ $(function () {
       success: function (res) {
         if (res.status !== 0) {
           return setTimeout(function () {
-            alert("登录失败", res.message)
+            alert("登录失败,用户名或密码错误")
           }, 1000)
         }
         setTimeout(function () {
           $('#login-success').addClass('d-none');
-        }, 1000);
+        }, 0);
         console.log(res.token);
-        localStorage.setItem("userToken",JSON.stringify(res.token))
-        e.preventDefault()
-        window.location.href = "../index.html"
+        localStorage.setItem("userToken",res.token)
+        // e.preventDefault()
+        location.href = "../index.html"
       }
     })
   })
