@@ -20,8 +20,11 @@ $(function () {
         Authorization:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsInVzZXJuYW1lIjoieGlhb3Jhbm5hIiwicGFzc3dvcmQiOiIiLCJuaWNrbmFtZSI6bnVsbCwiZW1haWwiOm51bGwsInVzZXJfcGljIjoiIiwiaWF0IjoxNjg5Mzg4NDc0LCJleHAiOjE2ODk0MjQ0NzR9.eI2tjOQTK_s4rhoA6JuUeVyfsgRyFacjPFkpPGUhQGE"
       },
       success:function(res){
-        console.log(res);
-        // localStorage.removeItem("userToken")
+        if(res.status!==0){
+          return setTimeout(function(){
+            alert("获取用户信息失败,请稍后重试")
+          },1000)
+        }
       }
     })
   }
