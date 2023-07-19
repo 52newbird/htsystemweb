@@ -19,6 +19,7 @@ $(function () {
       if (res.status !== 0) {
         return console.log(res.message);
       }
+      //判断两次输入密码是否一致
       var password = $("#toCreat [name=password]").val()
       var repassword = $("#toCreat [name=repassword]").val()
       if (password !== repassword) {
