@@ -11,20 +11,50 @@ $(function () {
   getUserInfo()
 })
 
-  //获取用户信息函数
-  function getUserInfo(){
-    $.ajax({
-      url:"http://127.0.0.1:3007/my/userinfo",
-      method:"get",
-      headers:{
-        Authorization:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsInVzZXJuYW1lIjoieGlhb3Jhbm5hIiwicGFzc3dvcmQiOiIiLCJuaWNrbmFtZSI6bnVsbCwiZW1haWwiOm51bGwsInVzZXJfcGljIjoiIiwiaWF0IjoxNjg5Mzg4NDc0LCJleHAiOjE2ODk0MjQ0NzR9.eI2tjOQTK_s4rhoA6JuUeVyfsgRyFacjPFkpPGUhQGE"
-      },
-      success:function(res){
-        if(res.status!==0){
-          return setTimeout(function(){
-            alert("获取用户信息失败,请稍后重试")
-          },1000)
-        }
+//获取用户信息函数
+function getUserInfo() {
+  $.ajax({
+    url: "/my/userinfo",
+    method: "GET",
+    success: function (res) {
+      if (res.status !== 0) {
+        return setTimeout(function () {
+          alert("获取用户信息失败!")
+        }, 1000)
       }
-    })
+      console.log(res);
+      //渲染用户数据
+      getUserConfig(res.data)
+    },
+    complete:function(res){
+
+    }
+  })
+}
+
+//渲染用户信息
+function getUserConfig(user){
+  //设置用户昵称
+  var name = user.nickname || user.username
+  $(".xiugai").html(name)
+  //渲染用户头像
+  if(user.user_pic!==null){
+    $("#imgg").attr("src",user.user_pic)
   }
+}
+
+//退出功能
+$("#toIndex").on("click", function () {
+  if (confirm("确定要退出登录吗？")) {
+    // 1. 清空本地存储中的 token
+    localStorage.removeItem('userToken')
+    // 2. 重新跳转到登录页面
+    location.href = '/login.html'
+  }
+});
+
+//控制子导航
+$('.dropdown-toggle').on("click",function() {
+  $(this).toggleClass('active');
+  $(this).siblings('.dropdown-menu').slideToggle();
+});
