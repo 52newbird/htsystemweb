@@ -52,9 +52,3 @@ $("#toIndex").on("click", function () {
     location.href = '/login.html'
   }
 });
-
-//控制子导航
-$('.dropdown-toggle').on("click",function() {
-  $(this).toggleClass('active');
-  $(this).siblings('.dropdown-menu').slideToggle();
-});
